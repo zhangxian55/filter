@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+var star = ['小沈阳', '尼古拉斯赵四', '宋小宝', '刘能', '小沈阳', '小岳岳', '老郭', '于大爷'];
+// 获取成员否包含'小'字
+var result = star.filter(function (value, index, arr) {
+	// 包含小字
+	return value.indexOf('小') >= 0
+})
+/*
+ * 实现filter方法
+ * @arr 	原数组
+ * @fn 		回调函数
+ * return 	返回值
+ **/ 
+function filter(arr, fn) {
+	// 循环数组，寻找符号条件的成员，并保存在一个新数组中
+	// 定义一个数组容器
+	var result = [];
+	for (var i = 0; i < arr.length; i++) {
+		// 执行函数寻找成员
+		if (fn(arr[i], i, arr)) {
+			// 将值保存在result中
+			result.push(arr[i])
+		}
+	}
+	// 循环结束，将结果返回
+	return result;
+}
+// 测试
+var result = filter(star, function (value, index, arr) {
+	// 包含小字的
+	return value.indexOf('小') >= 0;
+})
+console.log(result)
+</script>
+</body>
+</html>
